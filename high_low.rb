@@ -1,12 +1,15 @@
 require 'pry'
+require_relative 'wallet'
+
 class HighLow
+  attr_accessor :wallet
   def initialize(player)
-    puts "Welcome to High low #{player.name}"
+    puts "Welcome to High Low #{player.name}"
     puts "You have #{player.wallet.amount} to bet with!"
-    betting
+    betting(player)
   end
 
-  def betting
+  def betting(player)
     puts "How much would you like to bet?"
     betting_amount = gets.to_f
     #check account if they have enough money
@@ -16,28 +19,27 @@ class HighLow
     case gets.downcase.strip
     when "high"
       if betting_number < rand(1..100)
-        puts "You won!"
-        amount = (amount + betting_amount)
+        puts "You won!".colorize(:green)
+        player.wallet.amount += betting_amount
         #some code for putting money to account
       elsif betting_number > rand(1..100)
-        puts "You lost!"
-        amount = (amount - betting_amount)
+        puts "You lost!".colorize(:red)
+        player.wallet.amount -= betting_amount
       else
         puts "You tied!"
       end
     when "low"
-        if betting_number > rand(1..100)
-          puts "You won!"
-          amount = (amount + betting_amount)
-        elsif betting_number < rand(1..100)
-          puts "You lost!"
-          amount = (amount - betting_amount)
-        else
+      if betting_number > rand(1..100)
+          puts "You won!".colorize(:green)
+          player.wallet.amount += betting_amount
+      elsif betting_number < rand(1..100)
+          puts "You lost!".colorize(:red)
+          player.wallet.amount -= betting_amount
+      else
           puts "You tied!"
-        end
-        #some code
+      end
     end
-    puts amount
+    puts player.wallet.amount
     # ask the player for their bet
     #error checking so the player can't bet with more than they have
     #play the game
