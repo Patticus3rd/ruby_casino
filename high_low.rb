@@ -23,6 +23,10 @@ class HighLow
   def betting(player)
     puts "How much would you like to bet?"
     betting_amount = gets.to_f
+      if betting_amount > player.wallet.amount || betting_amount < 1
+        puts "You don't have enough cash!"
+        betting(player)
+      end
     #check account if they have enough money
     betting_number = rand(40..60)
     puts "The number you have to beat is #{betting_number}"

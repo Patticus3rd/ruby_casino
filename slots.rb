@@ -20,6 +20,10 @@ class Slots
     slot3 = ["Cherries", "777", "Bell"]
     puts "How much would you like to bet?"
     betting_amount = gets.to_f
+      if betting_amount > player.wallet.amount || betting_amount < 1
+        puts "You don't have enough cash!"
+        slots(player)
+      end
     puts "Type 'Spin' to pull the handle or type 'Menu' to returen to the main menu"
     case gets.strip.downcase
     when "spin"
