@@ -1,5 +1,14 @@
 class Slots
   def initialize(player)
+    puts '
+  /$$$$$$  /$$             /$$
+ /$$__  $$| $$            | $$
+| $$  \__/| $$  /$$$$$$  /$$$$$$   /$$$$$$$
+|  $$$$$$ | $$ /$$__  $$|_  $$_/  /$$_____/
+ \____  $$| $$| $$  \ $$  | $$   |  $$$$$$
+ /$$  \ $$| $$| $$  | $$  | $$ /$$\____  $$
+|  $$$$$$/| $$|  $$$$$$/  |  $$$$//$$$$$$$/
+ \______/ |__/ \______/    \___/ |_______/ '.colorize(:yellow)
     puts "Welcome to slots #{player.name}!"
     puts "You have #{player.wallet.amount}"
     slots(player)

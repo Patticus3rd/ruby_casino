@@ -4,6 +4,17 @@ require_relative 'wallet'
 class HighLow
   attr_accessor :wallet
   def initialize(player)
+    puts ' /$$   /$$ /$$           /$$             /$$
+| $$  | $$|__/          | $$            | $$
+| $$  | $$ /$$  /$$$$$$ | $$$$$$$       | $$        /$$$$$$  /$$  /$$  /$$
+| $$$$$$$$| $$ /$$__  $$| $$__  $$      | $$       /$$__  $$| $$ | $$ | $$
+| $$__  $$| $$| $$  \ $$| $$  \ $$      | $$      | $$  \ $$| $$ | $$ | $$
+| $$  | $$| $$| $$  | $$| $$  | $$      | $$      | $$  | $$| $$ | $$ | $$
+| $$  | $$| $$|  $$$$$$$| $$  | $$      | $$$$$$$$|  $$$$$$/|  $$$$$/$$$$/
+|__/  |__/|__/ \____  $$|__/  |__/      |________/ \______/  \_____/\___/
+               /$$  \ $$
+              |  $$$$$$/
+               \______/                                                   '.colorize(:cyan)
     puts "Welcome to High Low #{player.name}"
     puts "You have #{player.wallet.amount} to bet with!"
     betting(player)
