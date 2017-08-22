@@ -3,6 +3,7 @@ require "colorize"
 require_relative "player"
 require_relative "high_low"
 require_relative "slots"
+require_relative"kids"
 
 class Casino
   attr_accessor :player

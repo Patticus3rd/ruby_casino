@@ -1,4 +1,5 @@
 require_relative "wallet"
+require_relative "kids"
 
 class Player
   attr_accessor :name, :age, :wallet
@@ -8,6 +9,11 @@ class Player
     @name = gets.strip
     puts "What's your age #{@name}?"
     @age = gets.to_i
+    if age < 21
+       @kids = Kids.new
+    else
+      ""
+    end
     puts "How much money are you playing with #{@name}?"
     @wallet = Wallet.new(gets.to_f)
   end
