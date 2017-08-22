@@ -24,15 +24,15 @@ class Slots
         puts "You don't have enough cash!"
         slots(player)
       end
-    puts "Type 'Spin' to pull the handle or type 'Menu' to returen to the main menu"
+    puts "Type 'Spin' to pull the handle or type 'Menu' to return to the main menu"
     case gets.strip.downcase
     when "spin"
       slot_roll_one = slot1.sample
       slot_roll_two = slot2.sample
       slot_roll_three = slot3.sample
-      puts slot_roll_one
-      puts slot_roll_two
-      puts slot_roll_three
+      puts slot_roll_one.colorize(:yellow)
+      puts slot_roll_two.colorize(:green)
+      puts slot_roll_three.colorize(:cyan)
       if slot_roll_one == slot_roll_two && slot_roll_two == slot_roll_three
         player.wallet.amount += betting_amount
         puts "You win! Current balance #{player.wallet.amount}".colorize(:green)
